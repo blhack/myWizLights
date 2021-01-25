@@ -12,7 +12,7 @@ import myWizLights
 my_broadcast_ip = "192.168.0.255" 
 
 #find the bulbs on your network
-myWizLights.discover()
+myWizLights.discover(my_broadcast_ip)
 
 #turn all the bulbs to red
 for bulb in myWizLights.bulbs:
