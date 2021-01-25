@@ -49,6 +49,11 @@ def setColor(ip, r=0, g=0, b=0, brightness=100):
 	brightness = clampValue(brightness, 1, 100, "brightness")
 	sock.sendto(message.encode(), (ip, 38899))
 
+def warmWhite(ip, brightness=100):
+	brightness = clampValue(brightness, 1, 100, "brightness")
+	message = """{"method": "setPilot", "params": {"dimming": %s, "state": true, "w": 255}}""" % (brightness)
+	sock.sendto(message.encode(), (ip, 38899))
+
 def setBrightness(ip, brightness=100):
 	message = """{"method": "setPilot", "params": {"dimming": %s, "state": true}}""" % (brightness)
 	print(message)
